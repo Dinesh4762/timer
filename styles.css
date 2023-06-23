@@ -24,9 +24,6 @@ html {
   justify-content: center;
   align-items: center;
 }
-#wrapper p {
-  font-size: 1.5rem;
-}
 
 #main {
   position: relative;
@@ -102,11 +99,20 @@ html {
 #timer-para {
   width: auto;
   padding: 3px 6px;
-  border-radius: 5px;
+  border-radius: 4px;
   background-color: #d8d6d6;
   color: black;
   font-weight: 600;
+  font-size: 1.4rem ;
 }
 #last-para {
+  font-size: 1.4rem ;
   margin-top: 2em;
+  text-align: center;
+  line-height: 26px;
+}
+@media (max-width: 369px) {
+    #last-para{
+        font-size: 1.1rem ;
+    }
 }
