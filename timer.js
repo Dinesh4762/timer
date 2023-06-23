@@ -1,3 +1,5 @@
+let audio = new Audio("music.mp3");
+
 let inc = document.querySelector("#incrementer");
 let dec = document.querySelector("#decrementer");
 
@@ -15,12 +17,31 @@ function decreaser() {
     num.textContent = timer + "s";
   }
 }
+inc.addEventListener("mousedown", function () {
+  // Start incrementing when the button is pressed and hold
+  intervalId = setInterval(increaser, 50);
+});
+
+// Event listener for the mouseup event
+inc.addEventListener("mouseup", function () {
+  // Stop incrementing when the button is released
+  clearInterval(intervalId);
+});
+
+dec.addEventListener("mousedown", function () {
+  intervalId = setInterval(decreaser, 50);
+});
+
+dec.addEventListener("mouseup", function () {
+  clearInterval(intervalId);
+});
 
 inc.addEventListener("click", increaser);
 
 dec.addEventListener("click", decreaser);
 
 function startTimer() {
+  document.querySelector(".start").disabled = true;
   let counter = parseInt(num.textContent);
 
   let showCounter = setInterval(() => {
@@ -31,6 +52,8 @@ function startTimer() {
         toHide.style.visibility = "visible";
       }, 300);
       num.textContent = 0;
+      audio.pause();
+      document.querySelector(".start").disabled = false;
     }
 
     toShow.textContent = counter + "s";
@@ -43,4 +66,5 @@ function startTimer() {
   toHide.style.visibility = "hidden";
   toShow.setAttribute("style", "visibility:visible;");
   toShow.textContent = "";
+  audio.play();
 }
