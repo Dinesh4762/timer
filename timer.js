@@ -17,27 +17,38 @@ function decreaser() {
     num.textContent = timer + "s";
   }
 }
-inc.addEventListener("mousedown", function () {
-  // Start incrementing when the button is pressed and hold
-  intervalId = setInterval(increaser, 50);
-});
 
-// Event listener for the mouseup event
-inc.addEventListener("mouseup", function () {
-  // Stop incrementing when the button is released
+
+inc.addEventListener("mousedown", function () {
+  intervalId = setInterval(increaser, 100);
+});
+inc.addEventListener("mouseup", function() {
   clearInterval(intervalId);
 });
 
 dec.addEventListener("mousedown", function () {
-  intervalId = setInterval(decreaser, 50);
+  intervalId = setInterval(decreaser, 100);
+});
+dec.addEventListener("mouseup", function() {
+  clearInterval(intervalId);
 });
 
-dec.addEventListener("mouseup", function () {
+// mouseup/down functionality for smart devices
+inc.addEventListener("touchstart", function () {
+  intervalId = setInterval(increaser, 100);
+});
+inc.addEventListener("touchend", function() {
+  clearInterval(intervalId);
+});
+
+dec.addEventListener("touchstart", function () {
+  intervalId = setInterval(decreaser, 100);
+});
+dec.addEventListener("touchend", function() {
   clearInterval(intervalId);
 });
 
 inc.addEventListener("click", increaser);
-
 dec.addEventListener("click", decreaser);
 
 function startTimer() {

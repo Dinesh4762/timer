@@ -88,6 +88,12 @@ html {
   font-weight: 500;
 
   background-color: #3ed558;
+  transition: all ease-out 0.3s;
+}
+
+.start:hover{
+ background-color: #257d33;
+ color:rgb(0, 0, 0) ;
 }
 
 #code {
@@ -95,6 +101,12 @@ html {
   padding: 3px 6px;
   border-radius: 5px;
   border: 1px solid #d8d6d6;
+  transition: all ease-out 0.28s;
+
+}
+#code:hover{
+    background-color: #d8d6d6;
+    color: black;
 }
 #timer-para {
   width: auto;
