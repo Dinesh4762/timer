@@ -4,6 +4,9 @@ let inc = document.querySelector("#incrementer");
 let dec = document.querySelector("#decrementer");
 
 let num = document.querySelector("#timer");
+let historyMain = document.querySelector("#history-main");
+
+let timerHistoryData = [];
 
 function increaser() {
   let timer = parseInt(num.textContent);
@@ -51,9 +54,20 @@ dec.addEventListener("touchend", function() {
 inc.addEventListener("click", increaser);
 dec.addEventListener("click", decreaser);
 
+function addHistory(){
+  let li = document.createElement('p');
+  li.innerHTML = `>> ${timerHistoryData[historyCounter]}s`;
+  historyMain.appendChild(li);
+  historyMain.scrollTo({ top: -historyMain.scrollHeight, behavior: "smooth" });
+  historyCounter++;
+}
+
+let historyCounter = 0 ;
+
 function startTimer() {
   document.querySelector(".start").disabled = true;
   let counter = parseInt(num.textContent);
+  timerHistoryData.push(counter);
 
   let showCounter = setInterval(() => {
     if (counter == 0) {
@@ -65,6 +79,7 @@ function startTimer() {
       num.textContent = 0;
       audio.pause();
       document.querySelector(".start").disabled = false;
+      addHistory();
     }
 
     toShow.textContent = counter + "s";

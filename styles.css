@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* outline: 1px solid rgba(238, 7, 7, 0.79); */
+  /* outline: 1px solid rgba(164, 224, 23, 0.79); */
 }
 
 body,
@@ -48,7 +48,7 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -88%);
+  transform: translate(-50%, -157%);
   border: #3ed558;
   padding: 10px !important;
   padding-top: 8px !important;
@@ -56,6 +56,8 @@ html {
   height: 100px;
   width: 150px;
   aspect-ratio: 1;
+
+  /* outline: 1px solid rgba(238, 7, 7, 0.79); */
 
   font-size: 60px !important;
   color: #d8d6d6;
@@ -91,9 +93,9 @@ html {
   transition: all ease-out 0.3s;
 }
 
-.start:hover{
- background-color: #257d33;
- color:rgb(0, 0, 0) ;
+.start:hover {
+  background-color: #257d33;
+  color: rgb(0, 0, 0);
 }
 
 #code {
@@ -102,11 +104,10 @@ html {
   border-radius: 5px;
   border: 1px solid #d8d6d6;
   transition: all ease-out 0.28s;
-
 }
-#code:hover{
-    background-color: #d8d6d6;
-    color: black;
+#code:hover {
+  background-color: #d8d6d6;
+  color: black;
 }
 #timer-para {
   width: auto;
@@ -115,16 +116,50 @@ html {
   background-color: #d8d6d6;
   color: black;
   font-weight: 600;
-  font-size: 1.4rem ;
+  font-size: 1.4rem;
 }
 #last-para {
-  font-size: 1.4rem ;
+  font-size: 1.4rem;
   margin-top: 2em;
   text-align: center;
   line-height: 26px;
 }
+#history {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transform: translateX(20%);
+}
+
+#history-main {
+  display: flex;
+  width: 70%;
+  height: auto;
+  overflow-y: auto;
+  flex-direction: column-reverse;
+  font-size: 1em;
+  color: #9b9595;
+  margin-top: 0.5em;
+}
+#history-main::-webkit-scrollbar {
+  width: 3px;
+}
+
+#history-main::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 10px;
+}
+#history-main::-webkit-scrollbar-track {
+  background-color: rgb(255 255 255 / 10%);
+}
 @media (max-width: 369px) {
-    #last-para{
-        font-size: 1.1rem ;
-    }
+  #last-para {
+    font-size: 1.1rem;
+  }
+  #history {
+    transform: translateX(-9%);
+  }
 }
